@@ -77,7 +77,7 @@ def logout():
     return jsonify({'status': True, 'msg': 'user logged out successfully'})
 
 
-@users.route('/users/movies')
+@users.route('/user/movies')
 def user_movies():
     if not current_user.is_authenticated:
         return jsonify({'status': False, 'msg': 'Please login see details'})

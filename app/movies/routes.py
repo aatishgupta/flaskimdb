@@ -1,7 +1,7 @@
 from flask import request, Blueprint, session
 from flask_login import current_user
 from flask import jsonify
-from models import Movie, MovieSchema, MovieComment, MovieRating, User
+from models import Movie, MovieSchema, MovieComment, MovieRating
 import requests, shutil, random, time, string
 from app import db
 import os, sys
@@ -70,7 +70,7 @@ def movies():
         return jsonify(data), 422
 
 
-@movie_blueprint.route('/movie/search/<string:keyword>', methods=['POST', 'GET'])
+@movie_blueprint.route('/movie/search/<string:keyword>', methods=['GET'])
 def search_movies(keyword):
     movie_schema = MovieSchema(many=True)
     search = "%{}%".format(keyword)
